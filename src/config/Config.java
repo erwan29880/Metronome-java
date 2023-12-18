@@ -7,8 +7,14 @@ public class Config {
     public static final double SEMITONE = Math.pow(2.0, 1/12.0);
     public static final short NBNOTES = 12;        // un ocatve
     public static final float SAMPLERATE = 22050;  // 22050 frames par secondes
+    public static final String ICONPATH = new StringBuilder()
+                                            .append(System.getProperty("user.dir"))
+                                            .append(System.getProperty("file.separator"))
+                                            .append("metronome.png")
+                                            .toString();
     private float bpm = 1.0f;                      // initialisation de la durée à 1, soit un bpm de 60
     private Notes note = Notes.A;                  // LA comme note initiale pour le rendu sonore
+
 
     /**
      * bpm pour battements par minutes

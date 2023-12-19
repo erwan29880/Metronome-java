@@ -12,7 +12,9 @@ import play.Play;
  */
 public class ControlsStop extends JButton implements ActionListener {
 
-    // avoir la même instance de Play entre plusieurs classes pour stopper le thread
+    /**
+     * avoir la même instance de Play entre plusieurs classes pour stopper le thread
+     */
     private Play play;
     
     /**

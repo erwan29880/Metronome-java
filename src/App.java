@@ -7,7 +7,12 @@ import front.Fenetre;
  */
 public class App {
 
-    
+
+    /**
+     * méthode principale
+     * @param args pas d'arguments pour ce programme
+     * @throws Exception if an error occured
+     */
     public static void main(String[] args) throws Exception {
         new Fenetre();
     }

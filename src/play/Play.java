@@ -13,7 +13,9 @@ import config.Config;
  */
 public class Play{
     
-    // variable multi thread pour sortie de boucle de lecture
+    /**
+     * variable multi thread pour sortie de boucle de lecture
+     */
     public volatile boolean loop = false;
 
     /**
@@ -33,10 +35,5 @@ public class Play{
         sourceLine.drain();
         sourceLine.stop();
         sourceLine.close(); 
-    }
-
-    @Override
-    public String toString() {
-        return "classe Play";
     }
 }

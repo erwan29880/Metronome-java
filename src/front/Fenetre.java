@@ -29,33 +29,65 @@ import play.Play;
  * @author erwan tanguy
  */
 public class Fenetre extends JFrame {
-    // JFrame
+    
+    /**
+     * largeur de la fenêtre
+     */
     private final short windowsWidth = 365;
+
+    /**
+     * hauteur de la fenêtre
+     */
     private final short windowsHeight = 500;
+
+    /**
+     * padding des JPanels par rapprt à la JFrame
+     */
     private final short padding = 10;
+
+    /**
+     * variable utilisée pour arrondir les angles des boutons
+     */
     private Container c;
     
-    // Dessi.drawCirlcesLines
-    private final int center = 155;   
-    private final int centerX = 155;
-    private final int centerY = 135;        
-    private final short radioSize = 400; 
-    private final short bpmRadioFontSize = 95;
-    private final float coefficientBpm = 1.7f;
-    private int texte = 0;
-    private int r = 110, r2 = r+10; // début ligne, fin ligne, début texte 
-
-    // audio 
+    /**
+     * initialisation du nom de la note émise par le bip du métronome
+     * @see notes.Notes
+     */
     private Notes n = Notes.A;
+
+    /**
+     * initialisation de la fréquence de la note jouée par le métronome
+     */
     private double hertzNote = 440.0d;
+
+    /**
+     * lecteur audio
+     * @see play.Play
+     */
     private Play play;
+
+    /**
+     * initialisation des fréquences des notes
+     * @see notes.Frequences
+     */
     private Frequences freqs;
 
-    // boutons
+    /**
+     * bouton play
+     * @see ControlsPlay
+     */
     private ControlsPlay playBpm;
+
+    /**
+     * bouton stop 
+     * @see ControlsStop
+     */
     private ControlsStop stop;
 
-    // constructeur
+    /**
+     * constructeur
+     */
     public Fenetre () {
         super();
         
@@ -93,7 +125,7 @@ public class Fenetre extends JFrame {
 
         // définir taille et bordures des JPanels
         logic.setBounds(padding, padding, windowsWidth - padding*3, 180);
-        radio.setBounds(padding, 190, windowsWidth - padding*3, radioSize);
+        radio.setBounds(padding, 190, windowsWidth - padding*3, 400);
        
         
         // ajouter les JPanels à la fenêtre
@@ -116,10 +148,14 @@ public class Fenetre extends JFrame {
     /**
      * création des boutons dans un Jpanel séparé
      * voir la classe ControlsNote ci sessous pour les boutons des notes
-     * @see fr.erwan.metronome.front.ControlsPlay
-     * @see fr.erwan.metronome.front.ControlsStop
+     * @see ControlsPlay
+     * @see ControlsStop
      */
     public class Logics extends JPanel {
+
+        /**
+         * constructeur
+         */
         public Logics() {
             this.setLayout(null);
             init();
@@ -179,7 +215,15 @@ public class Fenetre extends JFrame {
      */
     public class ControlsNote extends JButton implements ActionListener {
         
+        /**
+         * le nom de la note jouée par le métronome
+         * @see notes.Notes
+         */
         private Notes note;
+
+        /**
+         * la fréquence de la note jouée par le métronome
+         */
         private double hz;
 
         /**
@@ -197,7 +241,8 @@ public class Fenetre extends JFrame {
         /**
          * mise à jour des variables globales de la classe Fenetre
          * mise à jour de la classe ControlsPlay
-         * @see fr.erwan.metronome.front.ControlsPlay
+         * @see ControlsPlay
+         * @param e event
          */
         public void actionPerformed(ActionEvent e) {
             n = this.note;
@@ -215,7 +260,45 @@ public class Fenetre extends JFrame {
      */
     class Dessi extends JPanel implements MouseMotionListener{
 
-        // constructeur
+        /**
+         * absisse du centre du cercle
+         */
+        private final int centerX = 155;
+
+        /**
+         * ordonnée du centre du cercle
+         */
+        private final int centerY = 135;
+        
+        /**
+         * taille de la police pour le cercle
+         */
+        private final short bpmRadioFontSize = 95;
+
+        /**
+         * transformer l'angle du cercle avec un coefficient pour éviter
+         * des bpm de 0 à 360
+         */
+        private final float coefficientBpm = 1.7f;
+
+        /**
+         * un incrémenteur pour affichage en texte
+         */
+        private int texte = 0;
+
+        /**
+         * largeur du rayon du cercle intérieur
+         */
+        private int r = 110;
+
+        /**
+         * largeur du rayon du cercle extérieur
+         */
+        private int r2 = r+10; 
+
+        /**
+         * constructeur
+         */
         public Dessi() {
             this.setLayout(null);
             addMouseMotionListener(this);
@@ -224,6 +307,7 @@ public class Fenetre extends JFrame {
 
         /**
          * affichage des éléments
+         * @param g graphics
          */
         @Override
         public void paintComponent(Graphics g) {
@@ -235,7 +319,7 @@ public class Fenetre extends JFrame {
          * tracer le cercle des lignes
          * tracer une ligne rouge en fonction du bpm
          * @param g graphics
-         * @see fr.erwan.metronome.front.Utils
+         * @see Utils
          */
         private void drawCirlcesLines(Graphics g) {
             Graphics2D g2 = (Graphics2D) g;  // parsage en 2d pour utilisation de double pour affichage texte
@@ -288,8 +372,9 @@ public class Fenetre extends JFrame {
          * suivi du déplacement de la souris
          * calcul de l'anglen mise à jour de l'affichage du cercle et du bpm
          * mise à jour du bpm dans la classe ControlsPlay (playBpm)
-         * @see fr.erwan.metronome.front.ControlsPlay
-         * @see fr.erwan.metronome.front.Utils
+         * @see ControlsPlay
+         * @see Utils
+         * @param e event
          */
         public void mouseDragged(MouseEvent e) {
             double[] coord = {e.getX(), e.getY()};
@@ -302,6 +387,7 @@ public class Fenetre extends JFrame {
 
         /**
          * implémentation de l'interface
+         * @param e event
          */
         public void mouseMoved(MouseEvent e) {}
        

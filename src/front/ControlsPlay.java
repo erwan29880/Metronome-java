@@ -14,11 +14,19 @@ import play.Play;
  */
 public class ControlsPlay extends JButton implements ActionListener {
 
-    // même instance de Play que dans Fenetre et ControlsStop
+    /**
+     * même instance de Play que dans Fenetre et ControlsStop
+     */
     private Play play;
 
-    // initialisation bpm et fréquence au premier lancement
-    private float bpm = 0.54f; // 100 bpm
+    /**
+     * initialisation bpm à 100
+     */
+    private float bpm = 0.54f;
+
+    /**
+     * initialisation fréquence à 440Hz
+     */
     private double hz = 440.0d;
 
     /**
@@ -53,6 +61,7 @@ public class ControlsPlay extends JButton implements ActionListener {
     /**
      * lancement d'un nouveau Thread pour jouer le son en boucle selon une fréquence en hertz et un bpm
      * le thread est arreté par passage de la variable volatile play.loop à true dans ControlsStop
+     * @param e évènement
      */
     public void actionPerformed(ActionEvent e) {
         play.loop = false;

@@ -18,6 +18,9 @@ public enum Notes {
     D("D"),
     EB("Eb");
 
+    /**
+     * nom de la note en chaîne de caractères
+     */
     private final String name;       
 
     /**

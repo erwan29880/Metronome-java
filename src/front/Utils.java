@@ -2,7 +2,7 @@ package front;
 
 /**
  * Classe de calculs d'angles et de coordonnées 
- * @see fr.erwan.metronome.front.Fenetre.Dessi
+ * @see front.Fenetre
  * @author erwan tanguy
  */
 public class Utils {
@@ -99,6 +99,10 @@ public class Utils {
 
     // pour tests --------------------------
 
+    /**
+     * méthode publique permettant de tester dans les fichiers de tests la méthode coordinates()
+     * @return true en cas de test réussi
+     */
     public static boolean coordinatesTest() {
         int r = 2;
         double angl = 0.0d;
@@ -107,6 +111,10 @@ public class Utils {
         return (x == 2 & y ==0);
     }  
 
+    /**
+     * méthode publique permettant de tester dans les fichiers de tests la méthode angle()
+     * @return true en cas de test réussi
+     */
     public static boolean angleTest() {
         double debAngle = 0, theta = 10;
         int i = 1;

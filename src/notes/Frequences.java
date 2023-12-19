@@ -13,6 +13,11 @@ import config.Config;
  * @author erwan tanguy
  */
 public class Frequences {
+
+    /**
+     * nom des notes associées à leurs fréquences
+     * @see Notes
+     */
     private Map<Notes, Double> notes = new LinkedHashMap<Notes, Double>();
 
     /**
@@ -33,15 +38,27 @@ public class Frequences {
         }
     }
 
-    // getters setters
+    /**
+     * getter 
+     * @return les notes et leurs fréquences
+     */
     public Map<Notes,Double> getNotes() {
         return this.notes;
     }
 
+    /**
+     * getter
+     * @return un itérateur avec notes et fréquences
+     */
     public Iterator<Map.Entry<Notes, Double>> getNotesAsIterator() {
         return this.notes.entrySet().iterator();
     }
 
+    /**
+     * getter
+     * @param n le nom de la note
+     * @return sa fréquence en hertz
+     */
     public double getHz(Notes n) {
         return notes.get(n);
     }

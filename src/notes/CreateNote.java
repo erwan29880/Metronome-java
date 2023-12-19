@@ -10,6 +10,7 @@ public class CreateNote {
     /**
      * créer un signal audio avec un silence
      * @param bpm les battements par minutes convertis en secondes
+     * @param hz la fréquence en hertz
      * @return le signal audio en bytes
      */
     public static byte[] createSignal(float bpm, double hz) {

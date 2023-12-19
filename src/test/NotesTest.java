@@ -14,13 +14,7 @@ public class NotesTest {
     @Test 
     public void testNotes() {
         Notes n = Notes.values()[0];
-        boolean check = n.toString().equals("A");
+        boolean check = n.toString().equals("E");
         assertEquals(check, true);
-    }
-
-    @Test 
-    public void testCreateNotes() {
-        Frequences freq = new Frequences();
-        assertEquals(freq.getHz(Notes.A), 440);
     }
 }

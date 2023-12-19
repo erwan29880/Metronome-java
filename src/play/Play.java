@@ -7,6 +7,10 @@ import javax.sound.sampled.SourceDataLine;
 
 import config.Config;
 
+/**
+ * Lecture audio d'un tableau de bytes
+ * @author erwan tanguy
+ */
 public class Play{
     
     // variable multi thread pour sortie de boucle de lecture
@@ -29,5 +33,10 @@ public class Play{
         sourceLine.drain();
         sourceLine.stop();
         sourceLine.close(); 
+    }
+
+    @Override
+    public String toString() {
+        return "classe Play";
     }
 }

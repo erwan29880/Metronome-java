@@ -1,6 +1,10 @@
 package notes;
 import config.Config;
 
+/**
+ * classe de création des notes en bytes 
+ * @author erwan tanguy
+ */
 public class CreateNote {
  
     /**
@@ -42,5 +46,4 @@ public class CreateNote {
         }
         return audioData;
     }
-
 }

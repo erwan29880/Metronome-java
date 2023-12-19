@@ -2,6 +2,7 @@ package notes;
 
 /**
  * Enumération des notes sur une ocatve
+ * @author erwan tanguy
  */
 public enum Notes {
     E("E"),
@@ -19,14 +20,27 @@ public enum Notes {
 
     private final String name;       
 
+    /**
+     * constructeur
+     * @param s la note
+     */
     private Notes(String s) {
         name = s;
     }
 
+    /**
+     * méthode de vérification de chaîne de caractère
+     * @param otherName le nom de la note à vérifier
+     * @return la vérification
+     */
     public boolean equalsName(String otherName) {
         return name.equals(otherName);
     }
 
+    /**
+     * la note au format String
+     * @return la note au format String
+     */
     public String toString() {
         return this.name;
     }

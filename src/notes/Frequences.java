@@ -1,16 +1,19 @@
 package notes;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+
 import config.Config;
 
-/**7
+/**
  * Initialiser la fréquence des notes
  * dépendant de l'enum Notes
  * dépendant de la classe Config
+ * @author erwan tanguy
  */
 public class Frequences {
-    private Map<Notes, Double> notes = new HashMap<Notes, Double>();
+    private Map<Notes, Double> notes = new LinkedHashMap<Notes, Double>();
 
     /**
      * initialisation des notes par le constructeur
@@ -33,6 +36,10 @@ public class Frequences {
     // getters setters
     public Map<Notes,Double> getNotes() {
         return this.notes;
+    }
+
+    public Iterator<Map.Entry<Notes, Double>> getNotesAsIterator() {
+        return this.notes.entrySet().iterator();
     }
 
     public double getHz(Notes n) {
